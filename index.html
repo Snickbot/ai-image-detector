@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Is This Image AI-Generated? — Authenticity Check</title>
+  <meta name="description" content="Upload an image and check it for AI-generation signals, metadata, and provenance information.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="logo">Authenticity<span class="logo-accent">Check</span></div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero">
+      <h1>Is This Image AI-Generated?</h1>
+      <p class="subhead">Analyze an image for AI-generation signals, provenance information, metadata, and visual patterns.</p>
+      <a href="#upload-section" class="cta-button">Analyze an Image</a>
+      <p class="trust-line">Free • No account required</p>
+      <p class="trust-small">Results are probabilistic — no detector can guarantee authenticity.</p>
+    </section>
+
+    <section id="upload-section" class="upload-section">
+      <div class="upload-card" id="upload-card">
+        <input type="file" id="file-input" accept=".jpg,.jpeg,.png,.webp" hidden>
+        <div class="upload-icon" aria-hidden="true">&#8593;</div>
+        <p class="upload-title">Drop an image here</p>
+        <p class="upload-or">or</p>
+        <button type="button" class="choose-button" id="choose-button">Choose Image</button>
+        <p class="upload-formats">JPG, PNG, WEBP &middot; Max 10MB</p>
+      </div>
+    </section>
+
+    <section id="preview-section" class="preview-section" hidden>
+      <div class="preview-card">
+        <img id="preview-image" class="preview-image" alt="Selected image preview">
+        <div class="preview-meta">
+          <p><strong>File:</strong> <span id="preview-filename"></span></p>
+          <p><strong>Size:</strong> <span id="preview-filesize"></span></p>
+          <p><strong>Dimensions:</strong> <span id="preview-dimensions"></span></p>
+        </div>
+        <div class="preview-actions">
+          <button type="button" class="analyze-button" id="analyze-button">Analyze Image</button>
+          <button type="button" class="secondary-button" id="choose-another-button">Choose Another</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="analysis-section" class="analysis-section" hidden>
+      <div class="analysis-card">
+        <p class="analysis-title">Analyzing image...</p>
+        <ul class="analysis-steps" id="analysis-steps">
+          <li data-step="properties">Reading image properties</li>
+          <li data-step="metadata">Checking metadata</li>
+          <li data-step="provenance">Checking provenance information</li>
+          <li data-step="visual">Analyzing visual patterns</li>
+          <li data-step="frequency">Checking frequency characteristics</li>
+          <li data-step="classifier">Running authenticity classifier</li>
+        </ul>
+        <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      </div>
+    </section>
+
+    <section id="results-section" class="results-section" hidden>
+      <h2>Analysis Result</h2>
+      <div class="result-card" id="result-card">
+        <p class="result-label" id="result-label">DETECTION MODEL NOT CONFIGURED</p>
+        <p class="result-explainer" id="result-explainer">
+          This is the working preview of the interface. A real detection model hasn't been connected yet, so no score is shown here — we never display a fake result.
+        </p>
+
+        <div class="evidence-list" id="evidence-list">
+          <div class="evidence-card">
+            <p class="evidence-title">Provenance</p>
+            <p class="evidence-status">Not yet available</p>
+          </div>
+          <div class="evidence-card">
+            <p class="evidence-title">Metadata</p>
+            <p class="evidence-status">Not yet available</p>
+          </div>
+          <div class="evidence-card">
+            <p class="evidence-title">Visual analysis</p>
+            <p class="evidence-status">Not yet available</p>
+          </div>
+        </div>
+
+        <button type="button" class="secondary-button" id="analyze-another-button">Analyze Another Image</button>
+      </div>
+    </section>
+
+    <p class="disclaimer">
+      AI detection is not proof of authenticity. Images can be edited, compressed, resized, or stripped of metadata, and detection models can make mistakes.
+    </p>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Authenticity Check. Analysis happens in your browser — your image is not uploaded to a server.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
